@@ -298,7 +298,9 @@ Jx().$package(function(J){
 	
 	
 	$E.on(taskNameEl, "focus", function(e){
-		if(taskNameEl.value === text.pleaseStart){
+		var now = +new Date();
+		var remainTime = Math.round((stopTime - now)/1000);
+		if(taskNameEl.value === text.pleaseStart || remainTime <= 0){
 			taskNameEl.value = "";
 		}
 	});
